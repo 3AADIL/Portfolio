@@ -26,6 +26,31 @@
     --smaller-font-size: .875rem;
   }
 }
+/* Your existing desktop styles stay the same */
+
+/* Tablet */
+@media screen and (max-width: 1024px) {
+  .about-section {
+    flex-direction: column;
+    text-align: center;
+  }
+  .about-section img {
+    width: 80%; /* Override your fixed px size */
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 1.8rem; /* Override large px values */
+  }
+  .container {
+    padding: 10px;
+  }
+  .project-card {
+    width: 100%; /* Instead of fixed 400px */
+  }
+}
 
 /*===== BASE =====*/
 *, ::before, ::after {
@@ -201,22 +226,42 @@ img {
   color: var(--first-color);
 }
 .image-container {
-  position: absolute; /* stays in place even if you scroll */
-  top: 50%;        /* vertically center */
-  right: 20px;     /* distance from the right edge */
+  position: absolute;
+  top: 50%;
+  right: 20px;
   transform: translateY(-50%);
   margin-left: 1rem;
-  
 }
 
 .image-container img {
-  width: 250px;      /* fixed width */
-  height: 250px;     /* fixed height */
-  object-fit: cover; /* fills the circle without stretching */
+  width: 250px;  /* default desktop size */
+  height: 250px;
+  object-fit: cover;
   border-radius: 50%;
-   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
 }
 
+/* Tablet */
+@media screen and (max-width: 1024px) {
+  .image-container {
+    position: static; /* let it flow naturally */
+    text-align: center;
+    transform: none;
+    margin: 20px 0;
+  }
+  .image-container img {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 768px) {
+  .image-container img {
+    width: 150px;
+    height: 150px;
+  }
+}
 
 
 /*BUTTONS*/
